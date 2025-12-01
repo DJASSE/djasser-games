@@ -5,31 +5,62 @@
 <title>Djasser Games — Trivia & Flashcards for my english teacther</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-/* (احتفظت بنفس الـ CSS من كودك الأصلي) */
-:root{--primary:#4f46e5;--secondary:#64748b;--danger:#ef4444;--bg:#ffffff;--text:#0f172a;--card-bg:#f8fafc;--radius:16px;--shadow:0 4px 20px rgba(0,0,0,0.08);--transition:0.25s ease}
-body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);padding:20px}
-header{text-align:center;margin-bottom:20px}
-h1{margin:0;font-size:2.3rem;font-weight:800}
-nav{margin-top:15px}
-nav button{padding:10px 20px;margin:5px;border-radius:var(--radius);border:2px solid transparent;background:var(--card-bg);cursor:pointer;transition:var(--transition);font-size:15px}
-nav button:hover{border-color:var(--primary);transform:translateY(-3px)}
-nav .active{background:var(--primary);color:white;box-shadow:var(--shadow)}
-section{display:none;animation:fadeIn .4s ease}
-section.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.card{background:var(--card-bg);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);margin-top:20px;transition:var(--transition)}
-.card:hover{transform:scale(1.01)}
-button{padding:12px 20px;border:none;border-radius:var(--radius);cursor:pointer;font-size:15px;transition:var(--transition)}
-button:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.primary{background:var(--primary);color:white}
-.secondary{background:var(--secondary);color:white}
-.danger{background:var(--danger);color:white}
-.flashcard{background:white;width:90%;max-width:400px;min-height:220px;margin:30px auto;padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;user-select:none;transition:transform .6s;transform-style:preserve-3d;position:relative}
-.flashcard.flip{transform:rotateY(180deg)}
-.flashcard .side{position:absolute;width:100%;height:100%;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:20px;border-radius:var(--radius)}
-.flashcard .back{transform:rotateY(180deg);background:#f1f5f9}
-#no-cards{color:var(--secondary);text-align:center;margin-top:20px}
-@media(max-width:600px){button{width:100%;margin-top:10px}}
+:root {
+padding:25px;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+margin-top:20px;
+animation:float 3s infinite ease-in-out;
+}
+@keyframes float{
+0%{transform:translateY(0);}50%{transform:translateY(-6px);}100%{transform:translateY(0);}
+}
+/* ---------- FLASHCARD FLIP 3D ---------- */
+.flashcard{
+width:90%;
+max-width:420px;
+height:260px;
+background:var(--card);
+margin:30px auto;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+position:relative;
+transform-style:preserve-3d;
+transition:transform 0.7s;
+cursor:pointer;
+font-size:22px;
+padding:20px;
+}
+.flashcard.flip{transform:rotateY(180deg);}
+.flashcard .side{
+position:absolute;
+width:100%;height:100%;
+backface-visibility:hidden;
+display:flex;align-items:center;justify-content:center;
+padding:20px;
+border-radius:var(--radius);
+font-weight:600;
+}
+.flashcard .front{background:#ffefd4;}
+.flashcard .back{background:#d4f1ff;transform:rotateY(180deg);}
+button.primary{
+background:var(--primary);
+color:white;
+padding:12px 25px;
+border-radius:var(--radius);
+font-size:16px;font-weight:700;
+box-shadow:var(--shadow);
+}
+button.primary:hover{transform:scale(1.05);}
+button.secondary{
+background:var(--secondary);
+color:white;
+padding:12px 20px;
+border-radius:var(--radius);
+font-size:14px;
+margin:5px;
+}
+button.secondary:hover{transform:scale(1.05);}
 </style>
 </head>
 <body>
@@ -277,3 +308,4 @@ refreshFlashcard();
 
 </body>
 </html>
+
