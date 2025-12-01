@@ -4,170 +4,34 @@
 <meta charset="UTF-8" />
 <title>Djasser Games — Trivia & Flashcards for my english teacther</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <style>
-/* ---------------- GLOBAL STYLE (WHITE UI) --------------- */
-:root {
-  --primary: #4f46e5;
-  --secondary: #64748b;
-  --danger: #ef4444;
-  --bg: #ffffff;
-  --text: #0f172a;
-  --card-bg: #f8fafc;
-  --radius: 16px;
-  --shadow: 0 4px 20px rgba(0,0,0,0.08);
-  --transition: 0.25s ease;
-}
-
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  padding: 20px;
-}
-
-/* ---------------- HEADER ---------------- */
-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-h1 {
-  margin: 0;
-  font-size: 2.3rem;
-  font-weight: 800;
-}
-
-nav {
-  margin-top: 15px;
-}
-
-nav button {
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: var(--radius);
-  border: 2px solid transparent;
-  background: var(--card-bg);
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 15px;
-}
-
-nav button:hover {
-  border-color: var(--primary);
-  transform: translateY(-3px);
-}
-
-nav .active {
-  background: var(--primary);
-  color: white;
-  box-shadow: var(--shadow);
-}
-
-/* ---------------- SECTIONS ---------------- */
-section {
-  display: none;
-  animation: fadeIn 0.4s ease;
-}
-
-section.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------------- CARDS ---------------- */
-.card {
-  background: var(--card-bg);
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin-top: 20px;
-  transition: var(--transition);
-}
-
-.card:hover {
-  transform: scale(1.01);
-}
-
-/* ---------------- BUTTONS ---------------- */
-button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 15px;
-  transition: var(--transition);
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-.primary { background: var(--primary); color: white; }
-.secondary { background: var(--secondary); color: white; }
-.danger { background: var(--danger); color: white; }
-
-/* ---------------- FLASHCARDS ---------------- */
-.flashcard {
-  background: white;
-  width: 90%;
-  max-width: 400px;
-  min-height: 220px;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size: 24px;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.flashcard.flip {
-  transform: rotateY(180deg);
-}
-
-.flashcard .side {
-  position:absolute;
-  width:100%;
-  height:100%;
-  backface-visibility: hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  border-radius:var(--radius);
-}
-
-.flashcard .back {
-  transform: rotateY(180deg);
-  background:#f1f5f9;
-}
-
-#no-cards {
-  color: var(--secondary);
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* ---------------- RESPONSIVE ---------------- */
-@media (max-width: 600px){
-  button { width: 100%; margin-top:10px; }
-}
+/* (احتفظت بنفس الـ CSS من كودك الأصلي) */
+:root{--primary:#4f46e5;--secondary:#64748b;--danger:#ef4444;--bg:#ffffff;--text:#0f172a;--card-bg:#f8fafc;--radius:16px;--shadow:0 4px 20px rgba(0,0,0,0.08);--transition:0.25s ease}
+body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);padding:20px}
+header{text-align:center;margin-bottom:20px}
+h1{margin:0;font-size:2.3rem;font-weight:800}
+nav{margin-top:15px}
+nav button{padding:10px 20px;margin:5px;border-radius:var(--radius);border:2px solid transparent;background:var(--card-bg);cursor:pointer;transition:var(--transition);font-size:15px}
+nav button:hover{border-color:var(--primary);transform:translateY(-3px)}
+nav .active{background:var(--primary);color:white;box-shadow:var(--shadow)}
+section{display:none;animation:fadeIn .4s ease}
+section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.card{background:var(--card-bg);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);margin-top:20px;transition:var(--transition)}
+.card:hover{transform:scale(1.01)}
+button{padding:12px 20px;border:none;border-radius:var(--radius);cursor:pointer;font-size:15px;transition:var(--transition)}
+button:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.primary{background:var(--primary);color:white}
+.secondary{background:var(--secondary);color:white}
+.danger{background:var(--danger);color:white}
+.flashcard{background:white;width:90%;max-width:400px;min-height:220px;margin:30px auto;padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;user-select:none;transition:transform .6s;transform-style:preserve-3d;position:relative}
+.flashcard.flip{transform:rotateY(180deg)}
+.flashcard .side{position:absolute;width:100%;height:100%;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:20px;border-radius:var(--radius)}
+.flashcard .back{transform:rotateY(180deg);background:#f1f5f9}
+#no-cards{color:var(--secondary);text-align:center;margin-top:20px}
+@media(max-width:600px){button{width:100%;margin-top:10px}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -181,10 +45,8 @@ button:hover {
   </nav>
 </header>
 
-<!-- TRIVIA SECTION -->
 <section id="trivia" class="active">
-  <h2>✨ Trivia Game you add you trivia and the game will work and if you want to try this unit just clike stert game</h2>
-
+  <h2>✨ Trivia Game</h2>
   <button class="primary" onclick="startTrivia()">Start Game</button>
 
   <div id="triviaCard" class="card" style="display:none;">
@@ -195,10 +57,8 @@ button:hover {
   <h3>Score: <span id="score">0</span></h3>
 </section>
 
-<!-- FLASHCARD SECTION -->
 <section id="flashcards">
   <h2>🧠 Flashcards</h2>
-
   <button class="primary" onclick="addFlashcard()">Add Flashcard</button>
   <button class="secondary" onclick="shuffleFlashcards()">Shuffle</button>
 
@@ -213,31 +73,24 @@ button:hover {
   <button class="primary" onclick="nextCard()">Next</button>
 </section>
 
-<!-- SETTINGS -->
 <section id="settings">
   <h2>⚙️ Settings</h2>
-
   <button class="secondary" onclick="loadSampleData()">Load Sample Data</button>
   <button class="danger" onclick="clearAll()">Clear All Data</button>
 </section>
 
 <script>
-/* ==========================================================
-   TABS SWITCHING
-========================================================== */
+/* TABS */
 document.querySelectorAll(".tab").forEach(btn=>{
   btn.onclick = () => {
     document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
-
     document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
     document.getElementById(btn.dataset.tab).classList.add("active");
   };
 });
 
-/* ==========================================================
-   STORAGE
-========================================================== */
+/* STORAGE */
 let triviaQuestions = JSON.parse(localStorage.getItem("trivia")) || [];
 let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
 let score = 0;
@@ -246,46 +99,36 @@ function saveData(){
   localStorage.setItem("trivia", JSON.stringify(triviaQuestions));
   localStorage.setItem("flashcards", JSON.stringify(flashcards));
 }
- // MONEY LADDER (15 QUESTIONS)
+
+/* MONEY LADDER (15 QUESTIONS) */
 const moneyLadder = [
-  100, 
-  200, 
-  300, 
-  500, 
-  1000,     // ضمان 1
-  2000,
-  4000,
-  8000,
-  16000,
-  32000,    // ضمان 2
-  64000,
-  125000,
-  250000,
-  500000,
-  1000000
+  100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000
 ];
 
-/* ==========================================================
-   TRIVIA GAME LOGIC
-========================================================== */
-let currentQ = 0;
+/* UTILS */
+function shuffleArray(arr){
+  // Fisher-Yates shuffle (safer than sort hack)
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
+/* TRIVIA LOGIC */
+let currentQ = 0;
 let selectedQuestions = [];
 
 function startTrivia(){
   if(triviaQuestions.length < 15){
-    alert("You need at least 15 trivia questions!");
+    alert("You need at least 15 trivia questions! Load sample data first.");
     return;
   }
-
   score = 0;
   currentQ = 0;
-
   // اختيار 15 سؤال عشوائي
   selectedQuestions = shuffleArray([...triviaQuestions]).slice(0, 15);
-
   document.getElementById("score").textContent = score;
-
   showTriviaQuestion();
 }
 
@@ -306,9 +149,16 @@ function showTriviaQuestion(){
     btn.textContent=choice;
 
     btn.onclick=()=>{
-      // الإجابة الصحيحة
       if(i === q.answer){
-        score = moneyLadder[currentQ]; // إضافة الجائزة المناسبة
+        // إذا صح: تمنح جائزة هذا المستوى
+        score = moneyLadder[currentQ];
+        document.getElementById("score").textContent = score;
+      } else {
+        // خطأ = تحتفظ بالضمان الأقرب (مثال بسيط: إذا أخطأت قبل الضمان الأول -> 0)
+        // يمكنك تعديل هذا السلوك لو أردت أن تعطي الضمان الأخير الذي وصل إليه اللاعب
+        if(currentQ >= 10) score = 32000;
+        else if(currentQ >= 5) score = 1000;
+        else score = 0;
         document.getElementById("score").textContent = score;
       }
 
@@ -326,10 +176,7 @@ function showTriviaQuestion(){
   });
 }
 
-
-/* ==========================================================
-   FLASHCARDS
-========================================================== */
+/* FLASHCARDS */
 let flashIndex = 0;
 
 function refreshFlashcard(){
@@ -361,7 +208,7 @@ function nextCard(){
 }
 
 function shuffleFlashcards(){
-  flashcards.sort(()=>Math.random()-0.5);
+  flashcards = shuffleArray(flashcards);
   flashIndex = 0;
   saveData();
   refreshFlashcard();
@@ -370,149 +217,46 @@ function shuffleFlashcards(){
 function addFlashcard(){
   const front = prompt("Enter card FRONT text:");
   const back = prompt("Enter card BACK text:");
-
   if(!front || !back) return;
-
   flashcards.push({front, back});
   saveData();
   refreshFlashcard();
 }
 
-/* ==========================================================
-   SETTINGS
-========================================================== */
+/* SETTINGS: loadSampleData (منظم: triviaQuestions و flashcards منفصلين) */
 function loadSampleData(){
   triviaQuestions = [
-    {
-      question:"What does 'Ill-gotten gains never prosper' mean?", 
-      choices:["Money earned through hard work", "Wealth obtained dishonestly won't last", "Easy money is the best"], 
-      answer:1
-    },
-    {
-      question:"Which scenario best represents ill-gotten gains?", 
-      choices:["Earning a salary through honest work", "Stealing money from others", "Receiving a gift from family"], 
-      answer:1
-    },
-    {
-      question:"According to the proverb, what happens to dishonest wealth?", 
-      choices:["It multiplies quickly", "It doesn't bring lasting success", "It stays forever"], 
-      answer:1
-    },
-    {
-      question:"Which value does 'Ill-gotten gains never prosper' promote?", 
-      choices:["Greed", "Honesty and integrity", "Quick profit"], 
-      answer:1
-    },
-    {
-      question:"What is the opposite of ill-gotten gains?", 
-      choices:["Stolen wealth", "Honestly earned income", "Borrowed money"], 
-      answer:1
-    },
-    {
-      question:"Why do ill-gotten gains 'never prosper'?", 
-      choices:["Because dishonesty leads to negative consequences", "Because money is evil", "Because it's too much work"], 
-      answer:0
-    },
-    {
-      question:"Which is an example of honest gain?", 
-      choices:["Cheating on taxes", "Working hard and getting paid fairly", "Scamming people online"], 
-      answer:1
-    },
-    {
-      question:"The proverb teaches us to value:", 
-      choices:["Speed over quality", "Ethics over easy money", "Wealth over health"], 
-      answer:1
-    }
+    {question:"What does 'Ill-gotten gains never prosper' mean?", choices:["Money earned through hard work","Wealth obtained dishonestly won't last","Easy money is the best"], answer:1},
+    {question:"Which scenario best represents ill-gotten gains?", choices:["Earning a salary through honest work","Stealing money from others","Receiving a gift from family"], answer:1},
+    {question:"According to the proverb, what happens to dishonest wealth?", choices:["It multiplies quickly","It doesn't bring lasting success","It stays forever"], answer:1},
+    {question:"Which value does 'Ill-gotten gains never prosper' promote?", choices:["Greed","Honesty and integrity","Quick profit"], answer:1},
+    {question:"What is the opposite of ill-gotten gains?", choices:["Stolen wealth","Honestly earned income","Borrowed money"], answer:1},
+    {question:"Why do ill-gotten gains 'never prosper'?", choices:["Because dishonesty leads to negative consequences","Because money is evil","Because it's too much work"], answer:0},
+    {question:"Which is an example of honest gain?", choices:["Cheating on taxes","Working hard and getting paid fairly","Scamming people online"], answer:1},
+    {question:"The proverb teaches us to value:", choices:["Speed over quality","Ethics over easy money","Wealth over health"], answer:1},
+    {question:"Which connector expresses cause?", choices:["Therefore","Because","As a result"], answer:1},
+    {question:"What does the proverb 'Crime doesn’t pay' mean?", choices:["Crime makes people rich","Dishonest actions lead to failure","Crime is fun"], answer:1},
+    {question:"Which of the following is considered corruption?", choices:["Working overtime","Bribing a tax inspector","Helping a customer"], answer:1},
+    {question:"Which sentence expresses a first conditional?", choices:["If he studied, he will pass.","If he studied, he would pass.","If he studies, he will pass."], answer:2},
+    {question:"What is the opposite of 'legal'?", choices:["Illicit","Illegal","Moral"], answer:1},
+    {question:"Which of the following is an example of honest behaviour?", choices:["Falsifying invoices","Reporting corruption","Smuggling goods"], answer:1},
+    {question:"Which value is promoted by the phrase 'honesty and integrity'?", choices:["Immorality","Ethical behaviour","Fraud"], answer:1},
+    // يمكنك إضافة أسئلة أكثر هنا إن أردت
   ];
 
   flashcards = [
-    {
-      front:"Ill-gotten gains never prosper", 
-      back:"المكاسب الحرام لا تدوم - Wealth obtained dishonestly will not bring lasting success"
-    },
-    {
-      front:"What are 'ill-gotten gains'?", 
-      back:"Money or wealth acquired through dishonest, illegal, or unethical means"
-    },
-    {
-      front:"Why won't ill-gotten gains prosper?", 
-      back:"Because dishonesty leads to guilt, legal consequences, and loss of trust"
-    },
-    {
-      front:"Moral lesson", 
-      back:"Always earn your living through honest and ethical means"
-    },
-    {
-      front:"Alternative saying", 
-      back:"'Easy come, easy go' or 'Crime doesn't pay'"
-    },
-    {
-      front:"Honesty", 
-      back:"Being truthful and fair in all dealings - the opposite of ill-gotten gains"
-    },
-    {
-      front:"Integrity", 
-      back:"Having strong moral principles and doing the right thing even when no one is watching"
-    },
-    {
-      front:"Example of honest gain", 
-      back:"Earning money through hard work, fair business practices, and ethical behavior"
-    }
-    {
-    question:"Which connector expresses cause?",
-    choices:["Therefore", "Because", "As a result"],
-    answer:1
-    },
-    {
-    question:"What does the proverb 'Crime doesn’t pay' mean?",
-    choices:["Crime makes people rich", "Dishonest actions lead to failure", "Crime is fun"],
-    answer:1
-    },
-    {
-    question:"Which of the following is considered corruption?",
-    choices:["Working overtime", "Bribing a tax inspector", "Helping a customer"],
-    answer:1
-    },
-    {
-    question:"Which sentence expresses a first conditional?",
-    choices:["If he studied, he will pass.", "If he studied, he would pass.", "If he studies, he will pass."],
-    answer:2
-    },
-    {
-    question:"What is the opposite of 'legal'?",
-    choices:["Illicit", "Illegal", "Moral"],
-    answer:1
-    },
-    {
-    question:"Which of the following is an example of honest behaviour?",
-    choices:["Falsifying invoices", "Reporting corruption", "Smuggling goods"],
-    answer:1
-    },
-    {
-    question:"Which value is promoted by the phrase 'honesty and integrity'?",
-    choices:["Immorality", "Ethical behaviour", "Fraud"],
-    answer:1
-    },
-    {
-    question:"What happens 'as a result' of fraud in business?",
-    choices:["Trust increases", "Companies grow safely", "People lose trust and money"],
-    answer:2
-    },
-    {
-    question:"Which prefix turns 'moral' into its opposite?",
-    choices:["im-", "un-", "dis-"],
-    answer:0
-    },
-    {
-    question:"Which sentence expresses regret?",
-    choices:["I wish I hadn’t lied.", "I eat healthy food.", "He may succeed."],
-    answer:0
-    }
-  );
+    {front:"Ill-gotten gains never prosper", back:"المكاسب الحرام لا تدوم - Wealth obtained dishonestly will not bring lasting success"},
+    {front:"What are 'ill-gotten gains'?", back:"Money or wealth acquired through dishonest, illegal, or unethical means"},
+    {front:"Why won't ill-gotten gains prosper?", back:"Because dishonesty leads to guilt, legal consequences, and loss of trust"},
+    {front:"Moral lesson", back:"Always earn your living through honest and ethical means"},
+    {front:"Alternative saying", back:"'Easy come, easy go' or 'Crime doesn't pay'"},
+    {front:"Honesty", back:"Being truthful and fair in all dealings - النزاهة"},
+    {front:"Integrity", back:"Having strong moral principles and doing the right thing even when no one is watching"},
+    {front:"Example of honest gain", back:"Earning money through hard work, fair business practices, and ethical behavior"}
+  ];
 
   saveData();
   refreshFlashcard();
-
   alert("Sample data loaded with 'Ill-gotten gains never prosper' theme ✔️");
 }
 
@@ -527,12 +271,9 @@ function clearAll(){
   }
 }
 
+/* بداية */
 refreshFlashcard();
 </script>
+
 </body>
 </html>
-
-
-
-
-
