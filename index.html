@@ -246,31 +246,56 @@ function saveData(){
   localStorage.setItem("trivia", JSON.stringify(triviaQuestions));
   localStorage.setItem("flashcards", JSON.stringify(flashcards));
 }
+ // MONEY LADDER (15 QUESTIONS)
+const moneyLadder = [
+  100, 
+  200, 
+  300, 
+  500, 
+  1000,     // ضمان 1
+  2000,
+  4000,
+  8000,
+  16000,
+  32000,    // ضمان 2
+  64000,
+  125000,
+  250000,
+  500000,
+  1000000
+];
 
 /* ==========================================================
    TRIVIA GAME LOGIC
 ========================================================== */
 let currentQ = 0;
 
+let selectedQuestions = [];
+
 function startTrivia(){
-  if(triviaQuestions.length === 0){
-    alert("No trivia loaded. Load sample data first.");
+  if(triviaQuestions.length < 15){
+    alert("You need at least 15 trivia questions!");
     return;
   }
 
   score = 0;
   currentQ = 0;
+
+  // اختيار 15 سؤال عشوائي
+  selectedQuestions = shuffleArray([...triviaQuestions]).slice(0, 15);
+
   document.getElementById("score").textContent = score;
 
   showTriviaQuestion();
 }
 
 function showTriviaQuestion(){
-  const q = triviaQuestions[currentQ];
+  const q = selectedQuestions[currentQ];
   const card = document.getElementById("triviaCard");
   card.style.display = "block";
 
-  document.getElementById("questionText").innerText = q.question;
+  document.getElementById("questionText").innerText =
+    `Q${currentQ+1}: ${q.question}`;
 
   const ansBox = document.getElementById("answerButtons");
   ansBox.innerHTML = "";
@@ -281,16 +306,18 @@ function showTriviaQuestion(){
     btn.textContent=choice;
 
     btn.onclick=()=>{
+      // الإجابة الصحيحة
       if(i === q.answer){
-        score++;
+        score = moneyLadder[currentQ]; // إضافة الجائزة المناسبة
         document.getElementById("score").textContent = score;
       }
 
       currentQ++;
-      if(currentQ < triviaQuestions.length){
+
+      if(currentQ < 15){
         showTriviaQuestion();
       } else {
-        alert("🎉 Finished! Final Score: "+score);
+        alert("🎉 Finished!\nFinal Prize: $" + score);
         card.style.display="none";
       }
     };
@@ -298,6 +325,7 @@ function showTriviaQuestion(){
     ansBox.appendChild(btn);
   });
 }
+
 
 /* ==========================================================
    FLASHCARDS
@@ -430,7 +458,57 @@ function loadSampleData(){
       front:"Example of honest gain", 
       back:"Earning money through hard work, fair business practices, and ethical behavior"
     }
-  ];
+    {
+    question:"Which connector expresses cause?",
+    choices:["Therefore", "Because", "As a result"],
+    answer:1
+    },
+    {
+    question:"What does the proverb 'Crime doesn’t pay' mean?",
+    choices:["Crime makes people rich", "Dishonest actions lead to failure", "Crime is fun"],
+    answer:1
+    },
+    {
+    question:"Which of the following is considered corruption?",
+    choices:["Working overtime", "Bribing a tax inspector", "Helping a customer"],
+    answer:1
+    },
+    {
+    question:"Which sentence expresses a first conditional?",
+    choices:["If he studied, he will pass.", "If he studied, he would pass.", "If he studies, he will pass."],
+    answer:2
+    },
+    {
+    question:"What is the opposite of 'legal'?",
+    choices:["Illicit", "Illegal", "Moral"],
+    answer:1
+    },
+    {
+    question:"Which of the following is an example of honest behaviour?",
+    choices:["Falsifying invoices", "Reporting corruption", "Smuggling goods"],
+    answer:1
+    },
+    {
+    question:"Which value is promoted by the phrase 'honesty and integrity'?",
+    choices:["Immorality", "Ethical behaviour", "Fraud"],
+    answer:1
+    },
+    {
+    question:"What happens 'as a result' of fraud in business?",
+    choices:["Trust increases", "Companies grow safely", "People lose trust and money"],
+    answer:2
+    },
+    {
+    question:"Which prefix turns 'moral' into its opposite?",
+    choices:["im-", "un-", "dis-"],
+    answer:0
+    },
+    {
+    question:"Which sentence expresses regret?",
+    choices:["I wish I hadn’t lied.", "I eat healthy food.", "He may succeed."],
+    answer:0
+    }
+  );
 
   saveData();
   refreshFlashcard();
@@ -453,6 +531,7 @@ refreshFlashcard();
 </script>
 </body>
 </html>
+
 
 
 
