@@ -1,0 +1,21 @@
+2025-12-05 22:41:38,074 - INFO - Starting Ron Robot Chat Application
+2025-12-05 22:41:38,075 - ERROR - API key not configured. Set OPENROUTER_API_KEY environment variable.
+2025-12-05 22:47:45,995 - INFO - Starting Ron Robot Chat Application
+2025-12-05 22:47:45,995 - ERROR - API key not configured. Set OPENROUTER_API_KEY environment variable.
+2025-12-05 22:52:31,825 - INFO - Starting Ron Robot Chat Application
+2025-12-05 22:52:31,826 - ERROR - API key not configured. Set OPENROUTER_API_KEY environment variable.
+2025-12-05 22:54:55,293 - INFO - Starting Ron Robot Chat Application
+2025-12-05 22:54:55,293 - ERROR - API key not configured. Set OPENROUTER_API_KEY environment variable.
+2025-12-05 22:56:26,761 - INFO - Starting Ron Robot Chat Application
+2025-12-05 22:56:26,833 - ERROR - Failed to load face faces\excited.png: Too early to create image: no default root window
+2025-12-05 22:56:26,917 - ERROR - Failed to load face faces\happy.png: Too early to create image: no default root window
+2025-12-05 22:56:26,926 - ERROR - Failed to load face faces\neutral.png: Too early to create image: no default root window
+2025-12-05 22:56:26,953 - ERROR - Failed to load face faces\sad.png: Too early to create image: no default root window
+2025-12-05 22:56:27,043 - ERROR - Failed to load face faces\surprised.png: Too early to create image: no default root window
+2025-12-05 22:56:27,469 - INFO - Application started successfully
+2025-12-05 22:56:35,627 - INFO - Memory saved: name
+2025-12-05 22:56:38,179 - INFO - Memory saved: age
+2025-12-05 22:56:41,937 - INFO - Memory saved: hobby
+2025-12-05 22:56:45,396 - INFO - Memory saved: mood
+2025-12-05 22:57:05,314 - ERROR - API error: HTTP code 405 from API ()
+2025-12-05 22:57:11,529 - ERROR - API error: HTTP code 405 from API ()
